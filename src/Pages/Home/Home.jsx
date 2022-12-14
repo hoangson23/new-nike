@@ -1,5 +1,7 @@
 //rfc
-import React from "react";
+import React, { useEffect} from "react";
+import { useDispatch } from "react-redux"
+import * as action from '../../Components/ListProduct/Module/Action/Action'
 import MainContainer from "../../Components/MainContainer";
 
 export default function Home() {
@@ -108,6 +110,10 @@ export default function Home() {
       title8: "Kids' Socks",
     },
   ];
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(action.actGetProductAPI("male", "shoes"))
+  },[])
   return (
     <div>
       <MainContainer
